@@ -16,7 +16,7 @@ function create_menu(language)
 			'<h3>Informações Básicas</h3>' +
 			'<ul>' +
 				'<li><a href="requisitos.html">Requisitos</a></li>' +
-				'<li><a href="../gpl-3.0.txt">Licença</a></li>' +
+				'<li><a href="../LICENSE">Licença</a></li>' +
 				'<li><a href="changelog.html">Change Log</a></li>' +
 			'</ul>' +	
 			
@@ -59,7 +59,7 @@ function create_menu(language)
 			'<h3>Basic Info</h3>' +
 			'<ul>' +
 				'<li><a href="requirements.html">Requirements</a></li>' +
-				'<li><a href="../gpl-3.0.txt">License</a></li>' +
+				'<li><a href="../LICENSE">License</a></li>' +
 				'<li><a href="changelog.html">Change Log</a></li>' +
 			'</ul>' +	
 			
