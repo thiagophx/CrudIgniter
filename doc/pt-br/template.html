@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to CrudIgniter User Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/userguide.css" />
+    
+    <script type="text/javascript" src="../assets/js/nav.js"></script>
+    <script type="text/javascript" src="../assets/js/prototype.lite.js"></script>
+    <script type="text/javascript" src="../assets/js/moo.fx.js"></script>
+    <script type="text/javascript" src="../assets/js/user_guide_menu.js"></script>
+</head>
+<body>
+
+<div id="nav">
+	<div id="nav_inner">
+		<script type="text/javascript">create_menu('pt-br');</script>
+	</div>
+</div>
+
+<div id="nav2">
+	<a name="top"></a>
+    <a href="javascript:void(0);" onclick="myHeight.toggle();">
+        <img src="../assets/img/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" 
+        alt="Toggle Table of Contents" />
+	</a>
+</div>
+
+<div id="masthead">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+	    <tr>
+			<td>
+            	<h1>CrudIgniter User Guide Version 1.0</h1>
+			</td>
+    	</tr>
+    </table>
+</div>
+
+<table id="breadcrumb" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	    <td>
+    		<a href="index.html">CrudIgniter Home</a> &nbsp;&#8250;&nbsp; Customizando os templates
+    	</td>
+	</tr>
+</table>
+
+<br clear="all" />
+
+<div id="content">
+  <h1>Customizando os templates</h1>
+
+	<p>
+    	Como o CrudIgniter trabalha com arquivos de template, é muito fácil você customizar os arquivos e deixá-los
+        adequados para suas necessidades.
+    </p>
+    <p>
+    	Os arquivos de template, se encontram no diretório <kbd>templates</kbd>. Você pode customizar os arquivos
+        como quiser, pois o CrudIgniter fornece para você um array chamado <kbd>table</kbd>, onde se encontram
+        todas as informações referentes a tabela escolhida e os campos.
+    </p>
+    <p>
+    	O array table, é utilizado por todo o CrudIgniter, todas as informações são guardadas nele, como quando você
+        escolhe uma regra de validação que será adicionada para um determinado campo, esse regra é armazenada no array.
+        Isso possibilita que você conheça todas as opções escolhidas durante o processo de criação da camada, tornando
+        a customização de templates muito simples.
+    </p>
+	<p>
+    	Para customizar um template, você não precisa conhecer nada além do array table e saber php, pois você pode
+        programar php normalmente dentro do template para criar o arquivo como desejar.
+    </p>
+	<p class="important">
+		<b>IMPORTANTE:</b> Em alguns templates, como por exemplo os da view, após ser realizada a criação dos arquivos,
+        eles devem conter tags php para que sejam processadas pelo CodeIgniter. Para fazer com que essas tags php
+        apareçam somente após os arquivos serem gerados, coloque no seu arquivo de template as seguintes tags:
+	</p>
+    <code>&lt;php&gt;&lt;/php&gt;</code>
+    <p>
+    	Essas tags serão substituídas respectivamente para 
+    &lt;?php e ?&gt;, após a criação dos arquivos.</p>
+    <p>
+    	Para conhecer melhor o array table, você pode utilizar a função print_r() do php. Vamos fazer isso no template de model.
+        Abra o arquivo <kbd>templates/models/model.php</kbd> e adicione a seguinte linha no começo do arquivo.
+    </p>
+    <code>&lt;?php print_r($table); ?&gt;</code>
+    <p>
+		Dessa forma após gerar uma nova model você poderá abrir o arquivo criado, como por exemplo <kbd>users_model.php</kbd>,
+        e lá no começo do arquivo estará o array table. Isso acontece porque o CrudIgniter trabalha com o controle do buffer,
+        fazendo com que não seja mostrado nada disso no console que está gerando a aplicação.
+    </p>
+    <code>
+	    Array<br />
+        (<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Name] => users<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Primary] => Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Field] => user_id<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Type] => int(11)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Null] => NO<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Key] => PRI<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Default] => <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Extra] => auto_increment<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Fields] => Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0] => Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Field] => user_name<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Type] => varchar(200)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Null] => NO<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Key] => <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Default] => <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Extra] => <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1] => Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Field] => user_age<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Type] => int(3)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Null] => NO<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Key] => <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Default] => <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Extra] => <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+    )
+    </code>
+    <p>
+    	Dessa forma você pode conhecer melhor o array table e facilmente customizar o seus templates.
+    </p>
+    
+    <h2>Templates da View</h2>
+    <p>
+    	No caso da view, você pode ter diversos templates além do CRUD, basta você criar um novo arquivo <kbd>.php</kbd>,
+        dentro do diretório <kbd>templates/views</kbd>, dessa forma quando você for gerar uma nova view, esse 
+        template será mostrado como uma opção também. O que permite que você crie páginas muito além do CRUD!
+    </p>
+</div>
+
+<div id="footer">
+    <p>
+    	<a href="#top">Topo</a>
+	</p>
+    <p>
+    	<a href="http://code.google.com/p/crud-igniter/">CrudIgniter</a> &nbsp;&middot;&nbsp; 
+        <a href="../gpl-3.0.txt">GNU General Public License</a> &nbsp;&middot;&nbsp; 
+        <a href="http://thiagorigo.com/">Thiago Rigo</a></p>
+</div>
+
+
+
+</body>
+</html>

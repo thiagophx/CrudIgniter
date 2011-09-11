@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to CrudIgniter User Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/userguide.css" />
+    
+    <script type="text/javascript" src="../assets/js/nav.js"></script>
+    <script type="text/javascript" src="../assets/js/prototype.lite.js"></script>
+    <script type="text/javascript" src="../assets/js/moo.fx.js"></script>
+    <script type="text/javascript" src="../assets/js/user_guide_menu.js"></script>
+</head>
+<body>
+
+<div id="nav">
+	<div id="nav_inner">
+		<script type="text/javascript">create_menu('pt-br');</script>
+	</div>
+</div>
+
+<div id="nav2">
+	<a name="top"></a>
+    <a href="javascript:void(0);" onclick="myHeight.toggle();">
+        <img src="../assets/img/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" 
+        alt="Toggle Table of Contents" />
+	</a>
+</div>
+
+<div id="masthead">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+	    <tr>
+			<td>
+            	<h1>CrudIgniter User Guide Version 1.0</h1>
+			</td>
+    	</tr>
+    </table>
+</div>
+
+<table id="breadcrumb" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	    <td>
+    		<a href="index.html">CrudIgniter Home</a> &nbsp;&#8250;&nbsp; Gerando uma View
+    	</td>
+	</tr>
+</table>
+
+<br clear="all" />
+
+<div id="content">
+  <h1>Gerando uma View</h1>
+
+	<p>
+    	Vamos continuar agora com a última camada da nossa aplicação, a view.
+    </p>
+	<code>php ci first_project</code>
+	<p class="important">
+    	<b>IMPORTANTE:</b> Para gerar a view é necessário que você já tenha gerado a controller.
+    </p>
+	<p>
+        Logo após executar o comando acima, deverão ser mostradas as camadas que podem ser geradas.
+	</p>
+        <code>
+            **************************************************************<br />
+            ************************* CRUD IGNITER *************************<br />
+            *********************** IGNITE YOUR CRUD ***********************<br />
+            **************************************************************<br />
+            ----------------------------------------------------------------<br /><br />            
+            
+            What do you want to generate?<br />
+            1. MODEL<br />
+            2. VIEW<br />
+            3. CONTROLLER<br />
+            4. EXIT<br />
+            [1] > 2<br /><br />
+            
+            What View do you want to generate?<br />
+            1. users<br />
+            > 1<br /><br />
+            
+            What templates do you want to generate?<br />
+            1. CRUD(add, edit, index)<br />
+            [1] ><br /><br />
+            
+            What is the human name to the field user_id?<br />
+            > Id<br />
+            View first_project\application\views\users\add.php was successfully created!<br />
+            View first_project\application\views\users\edit.php was successfully created!<br />
+            View first_project\application\views\users\index.php was successfully created!<br />
+            CrudIgniter exit.
+      </code>
+	<p>
+  		O CrudIgniter exibe as camadas que podem ser geradas, após a escolha da view, são sugeridas as opções
+        baseadas no seu banco de dados.
+	</p>
+    <p>
+    	Quando se está gerando uma view, note que você pode escolher diversos templates. O CRUD é o template mais básico, mas você
+        pode adicionar outros templates ao CrudIgniter. Para isso basta adicionar um novo arquivo <kbd>.php</kbd> no 
+        diretório <kbd>templates/views</kbd>, esse arquivo será um template customizado, mas esse tópico será abordado mais adiante.
+  	</p>
+    <p class="important">
+  		<b>IMPORTANTE:</b> Para selecionar diversos templates assim como a validação de campos na controller, 
+        basta separar os templates escolhidos com vírgula.
+    </p>
+    <p>
+    	Após a execução, você terá as telas criadas na pasta <kbd>application/views/users</kbd> do seu projeto.
+    </p>
+</div>
+
+<div id="footer">
+    <p>
+    	<a href="#top">Topo</a>
+	</p>
+    <p>
+    	<a href="http://code.google.com/p/crud-igniter/">CrudIgniter</a> &nbsp;&middot;&nbsp; 
+        <a href="../gpl-3.0.txt">GNU General Public License</a> &nbsp;&middot;&nbsp; 
+        <a href="http://thiagorigo.com/">Thiago Rigo</a></p>
+</div>
+
+
+
+</body>
+</html>

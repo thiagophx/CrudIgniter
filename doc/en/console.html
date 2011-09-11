@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to CrudIgniter User Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/userguide.css" />
+    
+    <script type="text/javascript" src="../assets/js/nav.js"></script>
+    <script type="text/javascript" src="../assets/js/prototype.lite.js"></script>
+    <script type="text/javascript" src="../assets/js/moo.fx.js"></script>
+    <script type="text/javascript" src="../assets/js/user_guide_menu.js"></script>
+</head>
+<body>
+
+<div id="nav">
+	<div id="nav_inner">
+		<script type="text/javascript">create_menu('en');</script>
+	</div>
+</div>
+
+<div id="nav2">
+	<a name="top"></a>
+    <a href="javascript:void(0);" onclick="myHeight.toggle();">
+        <img src="../assets/img/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" 
+        alt="Toggle Table of Contents" />
+	</a>
+</div>
+
+<div id="masthead">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+	    <tr>
+			<td>
+            	<h1>CrudIgniter User Guide Version 1.0</h1>
+			</td>
+    	</tr>
+    </table>
+</div>
+
+<table id="breadcrumb" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	    <td>
+    		<a href="index.html">CrudIgniter Home</a> &nbsp;&#8250;&nbsp; Console API
+    	</td>
+	</tr>
+</table>
+
+<br clear="all" />
+
+<div id="content">
+  <h1>Console API</h1>
+
+<p>
+    	The CrudIgniter provides an API for working with the console, making simple the creation of new features.
+    	Where the developer does not need to know how to work with the console, it suffices that he knows this API.
+  </p>
+    <p class="important">
+    	<b>IMPORTANT: </b> All <KBD>ConsoleIgniter</KBD> class methods are static.
+  </p>
+    <p>
+    	The main method of this class is the method <kbd>writeQuestion</kbd>, this method has the following signature.
+  </p>    
+    <code>
+    	mixed writeQuestion($question, array $options = null, $default = null, $canBeEmpty = false, $validate = true, $concat = false, $recursive = true)
+    </code>
+    <p>
+    This method is responsible for writing the question and return the response. It uses the methods <kbd>write</kbd> and <kbd>read</kbd>, 
+    but performs various validations, and is the recommended method to use when you want to ask something. 
+    The return can be string or int
+  </p>
+    <p>
+    	The string parameter <kbd>$question</kbd> is the question that should be made.
+  </p>
+    <p>
+        The array parameter <kbd>$options</kbd> represents the options that can be chosen. 
+        Below is an example of how should be this array.
+  </p>
+    <code>
+    	array('y', 'n')
+    </code>
+    <p>
+        You can also pass a default value in the above case, if we want in case the user does not type anything 
+        the <kbd>y</kbd> option is chosen, we must pass as a parameter default <kbd>0</kbd> which represents the index of the option.
+  </p>
+    <p>
+    	The boolean parameter <kbd>$canBeEmpty</kbd> represents whether the response is mandatory.
+  </p>
+    <p>
+    	The boolean parameter <kbd>$validate</kbd> is whether the response should be validated in that case you must pass
+        options for that validation is done.
+  </p>
+    <p>
+    	The boolean parameter <kbd>$concat</kbd> represents whether the response can contain several 
+        options such as when you are defining validation rules in the fields, where you can choose multiple rules.
+  </p>
+    <code>
+    	3,4,5
+    </code>
+    <p>
+    	The boolean parameter <kbd>$recursive</kbd> represents if as the response is not valid the question must still be made.
+  </p>
+    <p class="important">
+    	<b>IMPORTANT: </b> Note that when the answer is invalid, a message is displayed stating the error, 
+        these messages can be customized from the following methods.
+    </p>
+    <code>
+    	void setEmptyMsg($msg)
+    </code>
+    <p>
+    	Sets the message for when the value passed to the response is empty.
+    </p>
+    <code>
+    	void setInvalidNumberMsg($msg)
+    </code>
+    <p>
+		Sets the message for when the passed value is an invalid number, or nonexistent in the passed choices.
+    </p>
+    <code>
+    	void setInvalidNumbersMsg($msg)
+    </code>
+    <p>
+    	Sets the message for when the value passed as a response is a multipart response and one or more numbers 
+        are wrong, or missing in the options.
+    </p>
+    <code>
+    	void setInvalidFormatMsg($msg)
+    </code>
+    <p>
+    	Sets the message for when the value passed as a response is an invalid format.
+    </p>    
+    <p class="important">
+    	<b>IMPORTANT: </b> All the previous methods have their <kbd>gets</kbd>.
+    </p>
+    <code>
+    	void write($msg, $newLine = true)
+    </code>
+    <p>
+    	Write in the console, but is not expecting an answer like <kbd>writeQuestion()</kbd>. 
+        The <kbd>$newLine</kbd> parameter indicates if after writing the <kbd>$msg</kbd>, a new line should
+        be displayed.
+    </p>
+    <code>
+    	string read()
+    </code>
+    <p>
+        Just wait for a response from the console. Must be used in conjunction with the <kbd>write()</kbd> method. 
+        For example if you write a question in the console and want to get the response.
+    </p>
+    <code>
+    	ConsoleIgniter::write('What is your name?');<br />
+    	$result = ConsoleIgniter::read();
+    </code>
+    <p>
+    	In this case, the question was put through the <kbd>write</kbd> method and the 
+        response obtained through the <kbd>read</kbd> method.
+    </p>
+    <code>
+    	void line()
+    </code>
+    <code>
+    	----------------------------------------------------------------
+    </code>
+    <p>
+    	This method writes a line in the console, only to separate information, such as the one above.
+    </p>
+    <code>
+    	void bye()
+    </code>
+    <p>
+    	Ends the execution of CrudIgniter. Can be used for example if it is necessary to read a file and this file is not found.
+    </p>
+    
+</div>
+
+<div id="footer">
+    <p>
+    	<a href="#top">Top</a>
+	</p>
+    <p>
+    	<a href="http://code.google.com/p/crud-igniter/">CrudIgniter</a> &nbsp;&middot;&nbsp; 
+        <a href="../gpl-3.0.txt">GNU General Public License</a> &nbsp;&middot;&nbsp; 
+        <a href="http://thiagorigo.com/">Thiago Rigo</a></p>
+</div>
+
+
+
+</body>
+</html>

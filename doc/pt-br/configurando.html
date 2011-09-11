@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to CrudIgniter User Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/userguide.css" />
+    
+    <script type="text/javascript" src="../assets/js/nav.js"></script>
+    <script type="text/javascript" src="../assets/js/prototype.lite.js"></script>
+    <script type="text/javascript" src="../assets/js/moo.fx.js"></script>
+    <script type="text/javascript" src="../assets/js/user_guide_menu.js"></script>
+</head>
+<body>
+
+<div id="nav">
+	<div id="nav_inner">
+		<script type="text/javascript">create_menu('pt-br');</script>
+	</div>
+</div>
+
+<div id="nav2">
+	<a name="top"></a>
+    <a href="javascript:void(0);" onclick="myHeight.toggle();">
+        <img src="../assets/img/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" 
+        alt="Toggle Table of Contents" />
+	</a>
+</div>
+
+<div id="masthead">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+	    <tr>
+			<td>
+            	<h1>CrudIgniter User Guide Version 1.0</h1>
+			</td>
+    	</tr>
+    </table>
+</div>
+
+<table id="breadcrumb" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	    <td>
+    		<a href="index.html">CrudIgniter Home</a> &nbsp;&#8250;&nbsp; Configurando um projeto
+    	</td>
+	</tr>
+</table>
+
+<br clear="all" />
+
+<div id="content">
+  <h1>Configurando um projeto</h1>
+
+  	<p>Para configurar um projeto é muito simples, basta executar o CrudIgniter que todas as pastas necessárias serão criadas e os
+  		dados para configuração do seu projeto serão perguntados. Não é necessário configurar nenhum XML ou arquivo de 
+        configuração!
+  </p>
+	<p>Primeiro vamos executar o CrudIgniter.</p>
+	<code>php ci first_project</code>
+    
+	<p class="important">
+  		<b>IMPORTANTE:</b> Para executar o comando acima, é necessário estar na pasta onde se encontra o CrudIgniter.
+	</p>
+	<p class="important">
+	  	<b>IMPORTANTE:</b> É necessário ter o php.exe no PATH do seu sistema.
+	</p>
+	<p class="important">
+	  	<b>IMPORTANTE:</b> É necessário ter permissão de escrita no diretório <kbd>projects</kbd> do CrudIgniter.
+	</p>
+	<p>
+        Logo após executar o comando acima, deverão ser mostradas as informações de que o projeto foi criado com sucesso.<br />
+        E já serão solicitados os dados para configurar o banco de dados do projeto.
+	</p>
+        <code>
+            **************************************************************<br />
+            ************************* CRUD IGNITER *************************<br />
+            *********************** IGNITE YOUR CRUD ***********************<br />
+            **************************************************************<br />
+            ----------------------------------------------------------------<br /><br />
+            
+        Project not found!<br />
+            Creating project...<br />
+            ----------------------------------------------------------------<br />
+            Folder controllers was successfully created<br />
+            Folder models was successfully created<br />
+            Folder views was successfully created<br /><br />
+            
+            Define the database configuration...<br />
+            ----------------------------------------------------------------<br /><br />
+            
+        What is the database driver?<br />
+            1. mysql<br />
+            [1] ><br /><br />
+            
+        What is the host of the database server?<br />
+            [localhost] ><br /><br />
+            
+        What is the database username?<br />
+            [root] ><br /><br />
+            
+            What is the database password?<br />
+            > password<br /><br />
+            
+            What is the name of the database?<br />
+            [code_igniter] > crud<br /><br />
+            
+            ----------------------------------------------------------------<br />
+            The following database configuration will be created.<br />
+            ----------------------------------------------------------------<br />
+            Driver                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : mysql<br />
+            Host                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : localhost<br />
+            Username                : root<br />
+            Password                : password<br />
+            Database                : crud<br />
+            ----------------------------------------------------------------<br /><br />
+            
+        The information above is correct?<br />
+            1. y<br />
+            2. n<br />
+            [1] ><br />
+            Database configuration was successfully created.<br /><br />
+            
+            What do you want to generate?<br />
+            1. MODEL<br />
+            2. VIEW<br />
+            3. CONTROLLER<br />
+            4. EXIT<br />
+            [1] > 4<br />
+            CrudIgniter exit.<br />
+      </code>
+	<p>
+  		Após configurar o banco de dados, você já poderá começar a gerar a sua aplicação, 
+        mas pressione 4 para sair, pois abordaremos essa parte adiante.
+	</p>
+    <p>
+    	Agora você já deve ter uma pasta dentro do diretório <kbd>projects</kbd>, com o nome do seu projeto, 
+        e um arquivo de configuração chamado <kbd>db.php</kbd>.
+    </p>
+</div>
+
+<div id="footer">
+    <p>
+    	<a href="#top">Topo</a>
+	</p>
+    <p>
+    	<a href="http://code.google.com/p/crud-igniter/">CrudIgniter</a> &nbsp;&middot;&nbsp; 
+        <a href="../gpl-3.0.txt">GNU General Public License</a> &nbsp;&middot;&nbsp; 
+        <a href="http://thiagorigo.com/">Thiago Rigo</a></p>
+</div>
+
+
+
+</body>
+</html>

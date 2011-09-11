@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to CrudIgniter User Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/userguide.css" />
+    
+    <script type="text/javascript" src="../assets/js/nav.js"></script>
+    <script type="text/javascript" src="../assets/js/prototype.lite.js"></script>
+    <script type="text/javascript" src="../assets/js/moo.fx.js"></script>
+    <script type="text/javascript" src="../assets/js/user_guide_menu.js"></script>
+</head>
+<body>
+
+<div id="nav">
+	<div id="nav_inner">
+		<script type="text/javascript">create_menu('pt-br');</script>
+	</div>
+</div>
+
+<div id="nav2">
+	<a name="top"></a>
+    <a href="javascript:void(0);" onclick="myHeight.toggle();">
+        <img src="../assets/img/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" 
+        alt="Toggle Table of Contents" />
+	</a>
+</div>
+
+<div id="masthead">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+	    <tr>
+			<td>
+            	<h1>CrudIgniter User Guide Version 1.0</h1>
+			</td>
+    	</tr>
+    </table>
+</div>
+
+<table id="breadcrumb" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	    <td>
+    		<a href="index.html">CrudIgniter Home</a> &nbsp;&#8250;&nbsp; Gerando um Controller
+    	</td>
+	</tr>
+</table>
+
+<br clear="all" />
+
+<div id="content">
+  <h1>Gerando um Controller</h1>
+
+	<p>
+    	Agora que você ja tem a sua model criada, basta executar novamente o comando abaixo para começar a 
+        gerar a próxima camada da sua aplicação!
+    </p>
+	<code>php ci first_project</code>
+	
+	<p>
+        Logo após executar o comando acima, deverão ser mostradas as camadas que podem ser geradas.
+	</p>
+        <code>
+            ****************************************************************<br />
+            ************************* CRUD IGNITER *************************<br />
+            *********************** IGNITE YOUR CRUD ***********************<br />
+            ****************************************************************<br />
+            ----------------------------------------------------------------<br /><br />            
+            
+            What do you want to generate?<br />
+            1. MODEL<br />
+            2. VIEW<br />
+            3. CONTROLLER<br />
+            4. EXIT<br />
+            [1] > 3<br /><br />
+            
+            What Controller do you want to generate?<br />
+            1. users<br />
+            > 1<br /><br />
+            
+            Do you want to supply validation rules for the fields?<br />
+            1. y<br />
+            2. n<br />
+            [1] ><br />
+            ----------------------------------------------------------------<br />
+            Field: user_name Type: varchar(200)<br />
+            ----------------------------------------------------------------<br /><br />
+            
+            Choose a number<br />
+            1. Do not validate this field<br />
+            2. Type validation rule<br />
+            3. Required<br />
+            4. Matches<br />
+            5. Min_length<br />
+            6. Max_length<br />
+            7. Exact_length<br />
+            8. Alpha<br />
+            9. Alpha_numeric<br />
+            10. Alpha_dash<br />
+            11. Numeric<br />
+            12. Integer<br />
+            13. Is_natural<br />
+            14. Is_natural_no_zero<br />
+            15. Valid_email<br />
+            16. Valid_emails<br />
+            17. Valid_ip<br />
+            18. Valid_base64<br />
+            [1] > 3<br />
+            ----------------------------------------------------------------<br />
+            Field: user_age Type: int(3)<br />
+            ----------------------------------------------------------------<br /><br />
+            
+            Choose a number<br />
+            1. Do not validate this field<br />
+            2. Type validation rule<br />
+            3. Required<br />
+            4. Matches<br />
+            5. Min_length<br />
+            6. Max_length<br />
+            7. Exact_length<br />
+            8. Alpha<br />
+            9. Alpha_numeric<br />
+            10. Alpha_dash<br />
+            11. Numeric<br />
+            12. Integer<br />
+            13. Is_natural<br />
+            14. Is_natural_no_zero<br />
+            15. Valid_email<br />
+            16. Valid_emails<br />
+            17. Valid_ip<br />
+            18. Valid_base64<br />
+            [1] > 3,11<br /><br />
+            
+            What is the human name to the field user_name?<br />
+            > Name<br /><br />
+            
+            What is the human name to the field user_age?<br />
+            > Age<br /><br />
+            
+            Do you want to use cache?<br />
+            1. y<br />
+            2. n<br />
+            [2] ><br /><br />
+            
+            Do you want to do a profile?<br />
+            1. y<br />
+            2. n<br />
+            [2] ><br />
+            Controller first_project\application\controllers\users.php was successfully created!<br />
+            CrudIgniter exit.
+      </code>
+	<p>
+  		O CrudIgniter exibe as camadas que podem ser geradas, após a escolha da controller, são sugeridas as opções
+        baseadas no seu banco de dados.
+	</p>
+    <p>
+  		Quando se está gerando uma controller, é possível adicionar a validação nos campos que serão mostrados,
+        para isso o<br />
+      CrudIgniter exibe todos os tipos de validações existentes no CodeIgniter, sendo possível também
+      criar seu próprio tipo, mas<br />
+      isso será abordado numa próxima etapa.	</p>
+    <p class="important">
+  		<b>IMPORTANTE:</b> O CrudIgniter oferece diversas formas de escolher como validar seu campo, você pode
+	simplesmente escolher
+	o número desejado, escolher o número 1 que ignora o campo e não adiciona nenhuma regra de validação, concatenar as 
+	opções como por exemplo escolher a opção 3,11 o que quer dizer que você quer adicionar as duas regras naquele campo, e
+    também escolher o número 2 para digitar a sua própria regra, mas nesse caso você deve seguir as opções disponíveis pelo 
+    CodeIgniter, como o exemplo a seguir.</p>
+    <code>required|max_length[10]|min_length[2]</code>
+    <p>
+    	Após a execução, você terá um novo arquivo criado na pasta <kbd>application/controllers</kbd> do seu projeto.
+    </p>
+</div>
+
+<div id="footer">
+    <p>
+    	<a href="#top">Topo</a>
+	</p>
+    <p>
+    	<a href="http://code.google.com/p/crud-igniter/">CrudIgniter</a> &nbsp;&middot;&nbsp; 
+        <a href="../gpl-3.0.txt">GNU General Public License</a> &nbsp;&middot;&nbsp; 
+        <a href="http://thiagorigo.com/">Thiago Rigo</a></p>
+</div>
+
+
+
+</body>
+</html>

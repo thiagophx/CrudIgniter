@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to CrudIgniter User Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/userguide.css" />
+    
+    <script type="text/javascript" src="../assets/js/nav.js"></script>
+    <script type="text/javascript" src="../assets/js/prototype.lite.js"></script>
+    <script type="text/javascript" src="../assets/js/moo.fx.js"></script>
+    <script type="text/javascript" src="../assets/js/user_guide_menu.js"></script>
+</head>
+<body>
+
+<div id="nav">
+	<div id="nav_inner">
+		<script type="text/javascript">create_menu('en');</script>
+	</div>
+</div>
+
+<div id="nav2">
+	<a name="top"></a>
+    <a href="javascript:void(0);" onclick="myHeight.toggle();">
+        <img src="../assets/img/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" 
+        alt="Toggle Table of Contents" />
+	</a>
+</div>
+
+<div id="masthead">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+	    <tr>
+			<td>
+            	<h1>CrudIgniter User Guide Version 1.0</h1>
+			</td>
+    	</tr>
+    </table>
+</div>
+
+<table id="breadcrumb" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	    <td>
+    		<a href="index.html">CrudIgniter Home</a> &nbsp;&#8250;&nbsp; Custom validation
+    	</td>
+	</tr>
+</table>
+
+<br clear="all" />
+
+<div id="content">
+  <h1>Custom validation</h1>
+
+	<p>
+    	When you're generating a controller you have several rules to validate the fields. But you can 
+        always use multiple rules together, always having to type for example: 3,5,6. Where in this case you 
+        want to add the following rule.
+    </p>
+    <code>required|min_length[5]|max_length[10]</code>
+	<p>
+		With CrudIgniter you can create a custom type of validation! To do this simply open the file
+        <kbd>crudigniter/validation/ValidationTypes.php</kbd>
+    </p>       
+	<p class="important">
+		<b>IMPORTANT:</b> Note that this file have all the validation rules supported by CodeIgniter.</p>
+    <p>
+    	Now let's create a custom validation rule to avoid have to type all the time 3,5,6.
+    </p>
+    <p>
+    	Adds another position in the array ValidationTypes with your customized rule.
+    </p>
+    <code>
+    array(<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	'Name' => 'Custom validation',<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	'Rule' => 'required|min_length[%s]|max_length[%s]'<br />
+	)
+    </code>
+    <p class="important">
+    	<b>IMPORTANT: </b> Note that when a rule takes parameters, you should add <kbd>%s</kbd> in the place where the 
+        parameter should be placed. Because in that way CrudIgniter will require the parameter to that place.
+    </p>
+</div>
+
+<div id="footer">
+    <p>
+    	<a href="#top">Top</a>
+	</p>
+    <p>
+    	<a href="http://code.google.com/p/crud-igniter/">CrudIgniter</a> &nbsp;&middot;&nbsp; 
+        <a href="../gpl-3.0.txt">GNU General Public License</a> &nbsp;&middot;&nbsp; 
+        <a href="http://thiagorigo.com/">Thiago Rigo</a></p>
+</div>
+
+
+
+</body>
+</html>

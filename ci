@@ -1,0 +1,87 @@
+<?php
+/**
+ * Set no time limit
+ */
+set_time_limit(0);
+
+/**
+ * Directory Separator
+ * 
+ * @since 1.0
+ * @var string
+ */
+define('DS', DIRECTORY_SEPARATOR);
+
+/**
+ * Path to CrudIgniter folder
+ * 
+ * @since 1.0
+ * @var string
+ */
+define('BASE_PATH', dirname(__FILE__));
+
+/**
+ * Path to projects folder
+ * 
+ * @since 1.0
+ * @var string
+ */
+define('PROJECTS_PATH', BASE_PATH . DS . 'projects');
+
+/**
+ * Path to templates folder
+ * 
+ * @since 1.0
+ * @var string
+ */
+define('TEMPLATES_PATH', BASE_PATH . DS . 'templates');
+
+/**
+ * Path to crud folder
+ * 
+ * @since 1.0
+ * @var string
+ */
+define('CRUDIGNITER_PATH', BASE_PATH . DS . 'crudigniter');
+
+/**
+ * Path to generator folder
+ * 
+ * @since 1.0
+ * @var string
+ */
+define('GENERATOR_PATH', CRUDIGNITER_PATH . DS . 'generator');
+
+/**
+ * Path to core folder
+ * 
+ * @since 1.0
+ * @var string
+ */
+define('CORE_PATH', CRUDIGNITER_PATH . DS . 'core');
+
+/**
+ * Path to validation folder
+ * 
+ * @since 1.0
+ * @var string
+ */
+define('VALIDATION_PATH', CRUDIGNITER_PATH . DS . 'validation');
+
+/**
+ * Autoload classes
+ * 
+ * @since 1.0
+ * @param string $class the class name
+ * @return void
+ */
+function __autoload($class)
+{
+	if (file_exists(CORE_PATH . DS . $class . '.php'))
+		require CORE_PATH . DS . $class . '.php';
+	elseif (file_exists(GENERATOR_PATH . DS . $class . '.php'))
+		require GENERATOR_PATH . DS . $class . '.php';
+}
+
+// Let's start the magic!
+new CrudIgniter($argv);

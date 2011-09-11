@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to CrudIgniter User Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/userguide.css" />
+    
+    <script type="text/javascript" src="../assets/js/nav.js"></script>
+    <script type="text/javascript" src="../assets/js/prototype.lite.js"></script>
+    <script type="text/javascript" src="../assets/js/moo.fx.js"></script>
+    <script type="text/javascript" src="../assets/js/user_guide_menu.js"></script>
+</head>
+<body>
+
+<div id="nav">
+	<div id="nav_inner">
+		<script type="text/javascript">create_menu('pt-br');</script>
+	</div>
+</div>
+
+<div id="nav2">
+	<a name="top"></a>
+    <a href="javascript:void(0);" onclick="myHeight.toggle();">
+        <img src="../assets/img/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" 
+        alt="Toggle Table of Contents" />
+	</a>
+</div>
+
+<div id="masthead">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+	    <tr>
+			<td>
+            	<h1>CrudIgniter User Guide Version 1.0</h1>
+			</td>
+    	</tr>
+    </table>
+</div>
+
+<table id="breadcrumb" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	    <td>
+    		<a href="index.html">CrudIgniter Home</a> &nbsp;&#8250;&nbsp; Adicionando novas funcionalidades
+    	</td>
+	</tr>
+</table>
+
+<br clear="all" />
+
+<div id="content">
+  <h1>Adicionando novas funcionalidades</h1>
+
+	<p>
+    	Com o CrudIgniter você não precisa ficar limitado apenas as funcionalidades que ele possui. Você pode 
+        adicionar as suas próprias funcionalidades!
+    </p>
+    <p>
+    	Você pode adicionar novas funcionalidades para qualquer camada, model, view ou controller!
+    	No diretório <kbd>crudigniter/generator</kbd> ficam todas as classes responsáveis por gerar as camadas respectivas.
+        Para adicionar uma nova funcionalidade você deve criar uma classe com o prefixo <kbd>MY_</kbd> dentro
+        desse diretório. Por exemplo, para criar uma nova funcionalidade para a <kbd>model</kbd> crie um arquivo chamado
+        <kbd>MY_ModelGenerator.php</kbd>, esse arquivo deve conter uma classe com o mesmo nome do arquivo, mas há algumas
+        regras que devem ser seguidas.
+    </p>
+    <code>
+    &lt;?php<br />
+		class MY_ModelGenerator extends ModelGenerator<br />
+		{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;public function __construct()<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->customFeature();<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;private function customFeature()<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (ConsoleIgniter::writeQuestion('Do you want to do the custom feature?', array('y', 'n'), 0) == 0)<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->tables[$this->choosedLayer]['Custom'] = true;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+		}
+    </code>
+    <p class="important">
+    	<b>IMPORTANTE: </b> Você deve herdar da classe <kbd>ModelGenerator</kbd>.
+    </p>
+    <p class="important">
+    	<b>IMPORTANTE: </b> Você deve chamar o construtor da classe mãe.
+    </p>
+    <p class="important">
+    	<b>IMPORTANTE: </b> Todas as funcionalidades que você adicionar devem ser chamadas no construtor.
+    </p>
+    <p class="important">
+    	<b>IMPORTANTE: </b> O array <kbd>$this->tables</kbd>, possui todas as tabelas do banco de dados, para acessar a tabela escolhida
+    	no momento de gerar a camada, você deve usar <kbd>$this->choosedLayer</kbd> que contém o número da tabela escolhida.
+    </p>
+    <p class="important">
+    	<b>IMPORTANTE: </b> Você deve armazenar todas as informações que você deseja no array <kbd>$this->tables[$this->choosedLayer]</kbd>,
+    	pois no template o array <kbd>table</kbd> aponta para esse array. E assim você terá acesso a todas as informações para gerar o template.
+    </p>
+	<p>
+    	Ao fim de todas as perguntas, o método <kbd>generate()</kbd> é chamado. Você não precisa implementar esse método, pois a classe
+    	mãe no caso a <kbd>ModelGenerator</kbd> já implementa, mas caso você deseje sobreescrever para realizar alguma outra açao fique à vontade.
+    </p>
+</div>
+
+<div id="footer">
+    <p>
+    	<a href="#top">Topo</a>
+	</p>
+    <p>
+    	<a href="http://code.google.com/p/crud-igniter/">CrudIgniter</a> &nbsp;&middot;&nbsp; 
+        <a href="../gpl-3.0.txt">GNU General Public License</a> &nbsp;&middot;&nbsp; 
+        <a href="http://thiagorigo.com/">Thiago Rigo</a></p>
+</div>
+
+
+
+</body>
+</html>

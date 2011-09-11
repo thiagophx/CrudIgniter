@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to CrudIgniter User Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/userguide.css" />
+    
+    <script type="text/javascript" src="../assets/js/nav.js"></script>
+    <script type="text/javascript" src="../assets/js/prototype.lite.js"></script>
+    <script type="text/javascript" src="../assets/js/moo.fx.js"></script>
+    <script type="text/javascript" src="../assets/js/user_guide_menu.js"></script>
+</head>
+<body>
+
+<div id="nav">
+	<div id="nav_inner">
+		<script type="text/javascript">create_menu('en');</script>
+	</div>
+</div>
+
+<div id="nav2">
+	<a name="top"></a>
+    <a href="javascript:void(0);" onclick="myHeight.toggle();">
+        <img src="../assets/img/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" 
+        alt="Toggle Table of Contents" />
+	</a>
+</div>
+
+<div id="masthead">
+    <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+	    <tr>
+			<td>
+            	<h1>CrudIgniter User Guide Version 1.0</h1>
+			</td>
+    	</tr>
+    </table>
+</div>
+
+<table id="breadcrumb" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	    <td>
+    		<a href="index.html">CrudIgniter Home</a> &nbsp;&#8250;&nbsp; Generating a Model
+    	</td>
+	</tr>
+</table>
+
+<br clear="all" />
+
+<div id="content">
+  <h1>Generating a Model</h1>
+
+	<p>
+    	Now that you already have your project created, just rerun the command below to start generating your application!
+    </p>
+	<code>php ci first_project</code>
+	
+	<p>
+        Shortly after running the above command, must be shown the layers that can be generated.
+	</p>
+        <code>
+            **************************************************************<br />
+            ************************* CRUD IGNITER *************************<br />
+            *********************** IGNITE YOUR CRUD ***********************<br />
+            **************************************************************<br />
+            ----------------------------------------------------------------<br /><br />
+                        
+            What do you want to generate?<br />
+            1. MODEL<br />
+            2. VIEW<br />
+            3. CONTROLLER<br />
+            4. EXIT<br />
+            [1] > 1<br /><br />
+            
+            What Model do you want to generate?<br />
+            1. users<br />
+            > 1<br />
+            Model first_project\application\models\users_model.php was successfully created!<br />
+            CrudIgniter exit.
+      </code>
+	<p>
+        The CrudIgniter displays the layers that can be generated, after the choice of which layer generate, 
+        your database will be read and will be showed the options found. In our case we only have the option 
+        of <kbd>users</kbd> that corresponds to a table in the database.
+	</p>
+    <p>
+    	Upon execution, you will have a new file created in the folder <kbd>application/models</kbd> of your project.
+    </p>
+</div>
+
+<div id="footer">
+    <p>
+    	<a href="#top">Top</a>
+	</p>
+    <p>
+    	<a href="http://code.google.com/p/crud-igniter/">CrudIgniter</a> &nbsp;&middot;&nbsp; 
+        <a href="../gpl-3.0.txt">GNU General Public License</a> &nbsp;&middot;&nbsp; 
+        <a href="http://thiagorigo.com/">Thiago Rigo</a></p>
+</div>
+
+
+
+</body>
+</html>
